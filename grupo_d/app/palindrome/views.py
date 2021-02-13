@@ -1,31 +1,30 @@
-from django.http import HttpResponseBadRequest
 from rest_framework import viewsets
+from rest_framework.generics import GenericAPIView
+from rest_framework.views import APIView
 from rest_framework.decorators import action
 from rest_framework.response import Response
+
+from .serializers import PalindromeSerializer
 from .utils import get_palindrome
 from rest_framework.exceptions import ValidationError, ParseError
 
 
-class PalindromeViewSet(viewsets.ModelViewSet):
-    def list(self, request, *args, **kwargs):
+class PalindromeView(GenericAPIView):
+    serializer_class = PalindromeSerializer
+
+    def get(self, request):
         """
-        :param request:
-        :param args:
-        :param kwargs:
-        :return:
         """
         pass
 
-    def create(self, request, *args, **kwargs):
+    def post(self, request):
         """
-        :param request:
-        :param args:
-        :param kwargs:
-        :return:
+        Get the larger palindrome of a substring
         """
-        text = request.data.get('text')
-        if text:
-            palindromo = get_palindrome(text)
-            return Response({'palindromo': palindromo})
-        else:
-            raise ValidationError
+        serializer = PalindromeSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        text = serializer.validated_data["text"]
+        palindromo = get_palindrome(text)
+        return Response({'palindromo': palindromo})
+        # else:
+        #     raise ValidationError

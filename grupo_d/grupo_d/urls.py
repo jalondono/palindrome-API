@@ -17,14 +17,22 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from .router import router
+# from .router import router
+from django.conf.urls import url
+from rest_framework_swagger.views import get_swagger_view
 
+from app.palindrome.views import PalindromeView
+
+schema_view = get_swagger_view(title='Palindrime Swagger')
 
 admin.site.site_title = 'PRGX'
 admin.site.site_header = 'PRGX'
 
 urlpatterns = [
-    path('/', admin.site.urls),
-    path('palindromo/', include(router.urls)),
-
+    # url(r'^$', include('rest_framework_swagger.urls')),
+    path('', schema_view),
+    path('register'),
+    path('login'),
+    path('admin/', admin.site.urls),
+    path('palindromo/', PalindromeView.as_view(), name="palindro"),
 ]
