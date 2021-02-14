@@ -1,12 +1,9 @@
-from rest_framework import viewsets
 from rest_framework.generics import GenericAPIView
-from rest_framework.views import APIView
-from rest_framework.decorators import action
+
 from rest_framework.response import Response
 
 from .serializers import PalindromeSerializer
 from .utils import get_palindrome
-from rest_framework.exceptions import ValidationError, ParseError
 
 
 class PalindromeView(GenericAPIView):

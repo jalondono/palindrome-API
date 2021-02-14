@@ -31,8 +31,8 @@ admin.site.site_header = 'PRGX'
 urlpatterns = [
     # url(r'^$', include('rest_framework_swagger.urls')),
     path('', schema_view),
-    path('register'),
-    path('login'),
+    # path('register'),
+    # path('login'),
     path('admin/', admin.site.urls),
     path('palindromo/', PalindromeView.as_view(), name="palindro"),
 ]
