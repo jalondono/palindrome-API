@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from account.models import Account
+from app.user.models import Account
 
 
 class RegistrationSerializer(serializers.ModelSerializer):
@@ -16,7 +16,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
         password = self.validated_data['password']
         password2 = self.validated_data['password2']
         if password != password2:
-            raise serializers.ValidationError({'password':'Password must match'})
+            raise serializers.ValidationError({'password': 'Password must match'})
         account.set_password(password)
         account.save()
         return account

@@ -15,13 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
-# from .router import router
-from django.conf.urls import url
 from rest_framework_swagger.views import get_swagger_view
+from rest_framework.authtoken.views import obtain_auth_token
 
 from app.palindrome.views import PalindromeView
+
+from app.user.views import RegistrationView
+
 
 schema_view = get_swagger_view(title='Palindrime Swagger')
 
@@ -30,9 +30,9 @@ admin.site.site_header = 'PRGX'
 
 urlpatterns = [
     # url(r'^$', include('rest_framework_swagger.urls')),
-    path('', schema_view),
-    # path('register'),
-    # path('login'),
     path('admin/', admin.site.urls),
+    path('', schema_view, name='docs'),
+    path('register/', RegistrationView.as_view(), name='register'),
+    path('login/', obtain_auth_token, name='login'),
     path('palindromo/', PalindromeView.as_view(), name="palindro"),
 ]
