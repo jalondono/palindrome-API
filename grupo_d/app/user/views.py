@@ -20,7 +20,6 @@ class RegistrationView(GenericAPIView):
             data['response'] = "Successfully registered a new user"
             data['email'] = account.email
             data['username'] = account.username
-            data['token'] = Token.objects.get(user=account).key
         else:
             data = serializer.errors
         return Response(data)

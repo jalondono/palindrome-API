@@ -1,5 +1,5 @@
 from rest_framework.generics import GenericAPIView
-from rest_framework.authentication import TokenAuthentication
+# from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -10,7 +10,7 @@ from .utils import get_palindrome
 
 class PalindromeView(GenericAPIView):
     serializer_class = PalindromeSerializer
-    authentication_classes = [TokenAuthentication]
+    # authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
