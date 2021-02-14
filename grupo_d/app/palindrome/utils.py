@@ -1,26 +1,29 @@
-def get_palindrome(s: str) -> str:
+def longest_palindromic(text: str) -> str:
     """
-    Get the larger palindrome from one substring
-    :param s: substring
-    :return: palindrome
+    Get the largest palindrome given an string
+    :param text:
+    :return:
     """
+    # len of string
+    n = len(text)
 
-    dp = [[False for i in range(len(s))] for i in range(len(s))]
-    for i in range(len(s)):
-        dp[i][i] = True
-    max_length = 1
+    maxLength = 1
     start = 0
-    for l in range(2, len(s) + 1):
-        for i in range(len(s) - l + 1):
-            end = i + l
-            if l == 2:
-                if s[i] == s[end - 1]:
-                    dp[i][end - 1] = True
-                    max_length = l
-                    start = i
-            else:
-                if s[i] == s[end - 1] and dp[i + 1][end - 2]:
-                    dp[i][end - 1] = True
-                    max_length = l
-                    start = i
-    return s[start:start + max_length]
+
+    # go through the string
+    for i in range(n):
+        # go through the string
+        for j in range(i, n):
+            flag = 1
+
+            # Check palindrome
+            for k in range(0, ((j - i) // 2) + 1):
+                if (text[i + k] != text[j - k]):
+                    flag = 0
+                    break
+
+            # is palindromic, save the position
+            if (flag != 0 and (j - i + 1) > maxLength):
+                start = i
+                maxLength = j - i + 1
+    return text[start: start + maxLength]
