@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .serializers import PalindromeSerializer
-from .utils import get_palindrome
+from .utils import longest_palindromic
 
 
 class PalindromeView(GenericAPIView):
@@ -25,7 +25,7 @@ class PalindromeView(GenericAPIView):
         serializer = PalindromeSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         text = serializer.validated_data["text"]
-        palindromo = get_palindrome(text)
+        palindromo = longest_palindromic(text)
         return Response({'palindromo': palindromo})
         # else:
         #     raise ValidationError
