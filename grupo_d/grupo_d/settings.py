@@ -48,13 +48,14 @@ AUTH_USER_MODEL = 'user.Account'
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
     # 'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
-    'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework.authentication.TokenAuthentication',],
+    'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework_simplejwt.authentication.JWTAuthentication'],
     }
 
 JWT_AUTH = {
     'JWT_ALLOW_REFRESH': False,
     'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=6),
     'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=1),
+    'JWT_AUTH_HEADER_PREFIX': 'Bearer',
 }
 
 MIDDLEWARE = [
