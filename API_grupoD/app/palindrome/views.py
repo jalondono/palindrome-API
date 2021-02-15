@@ -1,3 +1,4 @@
+from rest_framework import status
 from rest_framework.generics import GenericAPIView
 # from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
@@ -26,6 +27,6 @@ class PalindromeView(GenericAPIView):
         serializer.is_valid(raise_exception=True)
         text = serializer.validated_data["text"]
         palindromo = longest_palindromic(text)
-        return Response({'palindromo': palindromo})
+        return Response({'palindromo': palindromo}, status=status.HTTP_200_OK)
         # else:
         #     raise ValidationError
