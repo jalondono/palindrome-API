@@ -14,11 +14,6 @@ class PalindromeView(GenericAPIView):
     # authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
-    def get(self, request):
-        """
-        """
-        pass
-
     def post(self, request):
         """
         Get the larger palindrome of a substring
@@ -28,5 +23,3 @@ class PalindromeView(GenericAPIView):
         text = serializer.validated_data["text"]
         palindromo = longest_palindromic(text)
         return Response({'palindromo': palindromo}, status=status.HTTP_200_OK)
-        # else:
-        #     raise ValidationError
