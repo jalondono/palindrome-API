@@ -18,12 +18,13 @@ def longest_palindromic(text: str) -> str:
 
             # Check palindrome
             for k in range(0, ((j - i) // 2) + 1):
-                if (text[i + k] != text[j - k]):
+                if text[i + k] != text[j - k]:
                     flag = 0
                     break
 
             # is palindromic, save the position
-            if (flag != 0 and (j - i + 1) > maxLength):
+            if flag != 0 and (j - i + 1) > maxLength:
                 start = i
                 maxLength = j - i + 1
+
     return text[start: start + maxLength]
