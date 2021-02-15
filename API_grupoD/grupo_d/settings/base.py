@@ -60,6 +60,16 @@ JWT_AUTH = {
     'JWT_AUTH_HEADER_PREFIX': 'Bearer',
 }
 
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+        }
+    }
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -93,6 +103,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'grupo_d.wsgi.application'
+
+
+# CORS WHITELIST
+CORS_ORIGIN_WHITELIST = [
+    "http://0.0.0.0:8000",
+    "http://127.0.0.1:8000"
+]
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
