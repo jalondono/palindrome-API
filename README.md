@@ -76,7 +76,7 @@ At the time of make request to palindrome endpoint, you will need pass in the he
 POST: http://0.0.0.0:8000/token/refresh/
 ```
 
-By default the token will have a duration of 1 day, once passed this time you have to refresh it, using this endpoint as follow
+By default the token will have a duration of 6 hours, once passed this time you have to refresh it, using this endpoint as follow
 
 .<img align="center" src="https://i.imgur.com/lR2Sqx0.png" height="80%" width="80%"/>
 
