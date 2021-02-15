@@ -42,7 +42,7 @@ This is an Palindrome API, where you can send it an string, And it returns the l
 ```
 * Once done this, just run it using the next command
 ```
-- python manage.py tests --settings=grupo_d.settings.test_sqlite
+- python manage.py test --settings=grupo_d.settings.test_sqlite
 ```
 
 ### Endpoints
