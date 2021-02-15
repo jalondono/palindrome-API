@@ -1,5 +1,5 @@
 from app.user.models import Account
-from app.user.tests.test_model import TestSetUp
+from app.user.tests.test_setup import TestSetUp
 
 
 class TestViews(TestSetUp):
