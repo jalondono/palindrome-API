@@ -1,3 +1,4 @@
+from rest_framework import status
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 
@@ -19,6 +20,7 @@ class RegistrationView(GenericAPIView):
             data['response'] = "Successfully registered a new user"
             data['email'] = account.email
             data['username'] = account.username
+            return Response(data, status=status.HTTP_201_CREATED)
         else:
             data = serializer.errors
-        return Response(data)
+            return Response(data, status=status.HTTP_400_BAD_REQUEST)
