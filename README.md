@@ -1,4 +1,4 @@
-#Longest palindrome API
+# Longest palindrome API
 
 This is an Palindrome API, where you can send it an string, And it returns the longest palindrome if exist
 #### Capabilities:
@@ -88,7 +88,8 @@ Well... The palindrome endpoint needs two things, A valid token on headers and t
 * Headers
 
 .<img align="center" src="https://i.imgur.com/RyXnBRx.png" height="40%" width="90%"/>
-After the put the token on the headers like in the image above. You just need insert the string and that's all
+
+After put the token on the headers like in the image above. You just need insert the string and that's all
 
 .<img align="center" src="https://i.imgur.com/pntZywH.png" height="80%" width="90%"/>
 
