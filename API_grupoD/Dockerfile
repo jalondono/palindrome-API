@@ -4,5 +4,6 @@ ENV PYTHONUNBUFFERED 1
 RUN mkdir /code
 WORKDIR /code
 COPY . /code
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 RUN pip install -r requirements.txt
-RUN python manage.py migrate --settings=grupo_d.settings.dev_sqlite
