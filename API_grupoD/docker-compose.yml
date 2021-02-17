@@ -3,7 +3,8 @@ version: '3'
 services:
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000 --settings=grupo_d.settings.dev_sqlite
+    entrypoint: /entrypoint.sh
+    command: echo "Docker Up"
     volumes:
     - .:/code
     ports:
